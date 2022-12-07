@@ -1,0 +1,20 @@
+<script>
+    var person = {
+        name: "sam",
+        email: "sam@gmail.com",
+        address: "Surat",
+        fullDetail: function () {
+            //return this.name + this.email+ this.address
+            return `Name : ${this.name}  Email : ${this.email}  Address : ${this.address}` //templating
+        }
+    }
+
+    var device = {
+        laptop: "Hp",
+        Phone: "Apple",
+        tablet: "Apple",
+
+    }
+    //console.log(person.name, person.address, person.email)
+    console.log(person.fullDetail())
+</script>

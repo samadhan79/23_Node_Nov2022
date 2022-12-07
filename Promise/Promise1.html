@@ -1,0 +1,17 @@
+<script>
+
+
+
+    function Prom(complete) {
+        return new Promise(function (res, rej) {
+            if (complete) {
+                res('succefully loaded...')
+            } else {
+                rej('Failed loaded...')
+            }
+        })
+    }
+
+
+    console.log(Prom(false))
+</script>

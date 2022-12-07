@@ -1,0 +1,34 @@
+<script>
+
+    // function Display(name){
+    //  console.log('Hello',name)
+    // }
+    // function Process(callback){
+    //      var name = "Nirmal"
+    //      callback(name)
+
+    // }
+
+
+    // Process(Display)
+
+
+
+    const Result = (result) => {
+        console.log('This is the Callback')
+        console.log("Result : ", result)
+    }
+
+    const Add = (x, y, callback) => {
+        var sum = x + y
+        callback(sum)
+    }
+    const Sub = (x, y, callback) => {
+        var sub = x - y
+        callback(sub)
+    }
+
+    Add(10, 20, Result)
+    Sub(10, 20, Result)
+
+</script>
