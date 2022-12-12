@@ -1,0 +1,2 @@
+1>npm i nodemon
+2>nodemon .\TestNode.js
