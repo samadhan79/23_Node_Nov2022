@@ -1,0 +1,25 @@
+<!-- this is the keyword to represent the current class objecsss.. -->
+
+<script>
+    class Student {
+        name = "kiran"
+        constructor(name) {
+            //this.name = name
+            console.log('My name is : ', name);
+            console.log("Hello Constructor....")
+        }
+        show() {
+            console.log('My name is : ', this.name);
+            console.log('Hello Show....')
+        }
+        info() {
+            console.log('My name is : ', this.name);
+
+        }
+    }
+
+    var khushal = new Student('khushal')
+    //var dhruvan = new Student('dhruvan')
+    khushal.show()
+    khushal.info()
+</script>

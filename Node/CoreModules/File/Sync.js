@@ -1,0 +1,12 @@
+const fs = require('fs')
+//fs.mkdirSync('Tops')
+//fs.writeFileSync('Tops/krupali.txt','Hello Krupali')
+//fs.appendFileSync('Tops/krupali.txt','I am Nodejs Developer')
+// const data = fs.readFileSync('Tops/krupali.txt','UTF-8')
+// const data = fs.readFileSync('Tops/krupali.txt')
+// console.log(data.toString())
+
+// fs.renameSync('Tops/krupali.txt','Tops/nirmal.txt')
+// fs.truncateSync('Tops/nirmal.txt')
+ //fs.unlinkSync('Tops/nirmal.txt')
+ fs.rmdirSync('Tops')

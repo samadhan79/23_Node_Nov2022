@@ -1,0 +1,22 @@
+<script>
+
+    function Prom(complete) {
+        return new Promise(function (res, rej) {
+            if (complete) {
+                res('successfully loaded...')
+            } else {
+                rej('fail to load....')
+            }
+        })
+    }
+
+    const success = (result) => {
+        console.log(result)
+    }
+    const fail = (fail) => {
+        console.log(fail)
+    }
+
+
+    Prom(true).then(success).catch(fail)
+</script>

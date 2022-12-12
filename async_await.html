@@ -1,0 +1,24 @@
+<script>
+
+    // const show = async () => {
+    //     console.log('message - 2')
+    //     await console.log('message - 3')
+    //     console.log('message - 4')
+    // }
+    // console.log('message - 1')
+    // show()
+    // console.log('message - 5')
+
+
+    const show = async () => {
+        let promise = new Promise((resolve, reject) => {
+            setTimeout(() => resolve("done!"), 2000)
+        });
+
+        let result = await promise;
+        alert(result)
+    }
+
+    show();
+
+</script>
