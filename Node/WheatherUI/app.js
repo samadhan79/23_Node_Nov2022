@@ -1,7 +1,7 @@
-const express = require('express')
-const path = require('path')
-const hbs = require('hbs')
 const geocode = require('./Util/Geocode')
+const express = require('express')
+const hbs = require('hbs')
+const path = require('path')
 const app = express()
 const PORT = 8000
 
@@ -12,6 +12,7 @@ const partialPath = path.join(__dirname, 'Template/Partial')
 hbs.registerPartials(partialPath)
 
 const publicPath = path.join(__dirname, 'Public')
+
 app.use(express.static(publicPath))
 
 app.get('/', function (req, res) {
@@ -24,7 +25,7 @@ app.get('/Wheather', function (req, res) {
     // res.end('Hello Express')
     // console.log('Welcome....!')
     const city = req.query.location;
-       
+
     geocode(city, (result) => {
         console.log(result.temp, result.city, result.pressure)
         res.json(result)

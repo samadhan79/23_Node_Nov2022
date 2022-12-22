@@ -4,7 +4,7 @@ function getCity(city) {
     fetch(`/Wheather?location=${city}`)
         .then((res) => res.json())
         .then((result) => {
-            console.log(result)
+            
             document.getElementById('cityname').innerHTML = result.city
             document.getElementById('temp').innerHTML = result.temp
         })
