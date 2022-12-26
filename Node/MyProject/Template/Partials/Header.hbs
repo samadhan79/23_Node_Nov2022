@@ -30,15 +30,29 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/products">Products</a>
-            </li>
+            
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/about">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/contact">Contact</a>
             </li>
+            
+              {{# if currentUser}}
+              <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/products">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/logout">Logout</a>
+            </li>
+             {{else}}
+             <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/Signup">Signup</a>
+            </li>
+              {{/if}}
             
             <li class="nav-item dropdown">
               <a
