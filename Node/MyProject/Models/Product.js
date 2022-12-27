@@ -11,6 +11,9 @@ const Product = mongoose.Schema({
     description: {
         require: true,
         type: String
+    },
+    image: {
+        type: String
     }
 
 })

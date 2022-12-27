@@ -19,6 +19,11 @@ app.set('views', path.join(__dirname, 'Template/Views'))
 
 const usePartialPath = path.join(__dirname, 'Template/Partials')
 hbs.registerPartials(usePartialPath)
+
+publicPath = path.join(__dirname, 'Upload')
+console.log(publicPath)
+app.use(express.static(publicPath))
+
 var bodyParser = require('body-parser');
 const { findByIdAndDelete } = require('./Models/Product');
 const bcrypt = require('bcryptjs/dist/bcrypt');
@@ -39,7 +44,7 @@ const upload = multer({ storage: storage }).array('image')
 
 app.get('/', async (req, res) => {
     const currentUser = req;
-    console.log(currentUser)
+
     const products = await Product.find()
     res.render('Home', { Products: products, currentUser })
 })
@@ -47,21 +52,32 @@ app.get('/about', function (req, res) {
     res.render('About')
 })
 app.get('/products', async function (req, res) {
+    const currentUser = req;
     const products = await Product.find()
 
-    res.render('Products', { Products: products })
+    res.render('Products', { Products: products,currentUser })
 })
 app.get('/addproduct', async function (req, res) {
 
-
-    res.render('AddProudct')
+    const currentUser = req;
+    res.render('AddProudct',{currentUser })
 })
 app.post('/addproduct', async function (req, res) {
-    upload(req, res, function () {
-
+    
+    upload(req, res, async function (err) {
         const filename = req.files[0].filename
+        const name = req.body.name
+        const price = req.body.price
+        const description = req.body.description
 
+        const data = { name: name, price: price, description: description, image: filename }
+
+        const product = await new Product(data)
+        product.save()
+        res.redirect('/products')
     })
+
+
 
     // const product = await new Product(req.body)
     //     product.save()
@@ -135,7 +151,7 @@ app.post('/signup', async function (req, res) {
     //res.redirect('/')
 })
 
-app.get('/logout', function (req,res) {
+app.get('/logout', function (req, res) {
     res.clearCookie('nToken');
     return res.redirect('/login');
 })
